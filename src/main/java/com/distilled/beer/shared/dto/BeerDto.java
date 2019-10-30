@@ -8,9 +8,11 @@ public class BeerDto {
 
     private double abv;
 
-    private String imageUrl;
+    private String image;
 
-    private String brewery;
+    private String breweryName;
+
+    private String breweryLocation;
 
     public String getName() {
         return name;
@@ -36,19 +38,27 @@ public class BeerDto {
         this.abv = abv;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getBrewery() {
-        return brewery;
+    public String getBreweryName() {
+        return breweryName;
     }
 
-    public void setBrewery(String brewery) {
-        this.brewery = brewery;
+    public void setBreweryName(String breweryName) {
+        this.breweryName = breweryName;
+    }
+
+    public String getBreweryLocation() {
+        return breweryLocation;
+    }
+
+    public void setBreweryLocation(String breweryLocation) {
+        this.breweryLocation = breweryLocation;
     }
 }

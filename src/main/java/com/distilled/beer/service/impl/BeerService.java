@@ -26,10 +26,9 @@ public class BeerService implements IBeer {
 
     @Override
     public List<BeerDto> getBeers() {
-        List<BeerEntity> beers = beerRepository.findByBeers();
-
+        List<BeerEntity> beers = beerRepository.findAll();
+        System.out.println(beers);
         List<BeerDto> beerDtoList = new ArrayList<>();
-
         for (BeerEntity beerEntity : beers) {
             BeerDto beerDto = new BeerDto();
             BeanUtils.copyProperties(beerEntity, beerDto);

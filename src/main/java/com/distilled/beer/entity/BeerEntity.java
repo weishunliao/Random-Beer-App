@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 
 @Entity
+@Table(name="beer")
 public class BeerEntity implements Serializable {
 
     @Id
@@ -19,7 +20,7 @@ public class BeerEntity implements Serializable {
     private String name;
 
     @Column(nullable = false)
-    private double abv;
+    private Double abv;
 
     @Column(nullable = false)
     private String description;
@@ -96,5 +97,19 @@ public class BeerEntity implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "BeerEntity{" +
+                "id=" + id +
+                ", bearID='" + bearID + '\'' +
+                ", name='" + name + '\'' +
+                ", abv=" + abv +
+                ", description='" + description + '\'' +
+                ", breweryName='" + breweryName + '\'' +
+                ", breweryLocation='" + breweryLocation + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 }
