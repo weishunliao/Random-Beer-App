@@ -1,4 +1,4 @@
-package com.distilled.beer.service.impl;
+package com.distilled.beer.service;
 
 import com.distilled.beer.shared.dto.BeerDto;
 
