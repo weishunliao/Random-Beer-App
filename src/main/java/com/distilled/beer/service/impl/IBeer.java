@@ -11,5 +11,4 @@ public interface IBeer {
     public List<BeerDto> getBeers();
 
     public BeerDto getRandomBeer();
-
 }
