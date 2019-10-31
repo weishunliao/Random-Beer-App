@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         padding: theme.spacing(2),
-        maxWidth: '80%',
+        maxWidth: '100%',
         height: '80%'
     },
     image: {
@@ -110,7 +110,7 @@ export default function MediaCard(props) {
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Grid container spacing={2}>
-                    <Grid item>
+                    <Grid item >
                         <ButtonBase className={classes.image}>
                             <img className={classes.img} alt="complex" src={data.image}/>
                         </ButtonBase>
