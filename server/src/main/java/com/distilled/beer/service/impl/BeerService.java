@@ -54,20 +54,18 @@ public class BeerService implements IBeer {
 
     @Override
     public BeerDto getRandomBeer() {
+        long count = beerRepository.count();
+        if (count == 0) {
+            throw new BeerServiceException("There is no beer in database.");
+        }
         int start = (int)beerRepository.findFirstByOrderByIdAsc().getId();
         int end = (int)beerRepository.findFirstByOrderByIdDesc().getId();
-        long count = beerRepository.count();
         Random random = new Random();
         int randomInt = random.nextInt(end - start + 1) + start;
         Optional<BeerEntity> beerEntity = beerRepository.findById((long) randomInt);
-        int i = 0;
         while (!beerEntity.isPresent()) {
             randomInt = random.nextInt(end - start + 1) + start;
             beerEntity = beerRepository.findById((long) randomInt);
-            i++;
-            if (i > count) {
-                throw new BeerServiceException("There is no beer in database.");
-            }
         }
         return getBeer(beerEntity.get().getBeerID());
     }
