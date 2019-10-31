@@ -1,6 +1,7 @@
 package com.distilled.beer.service.impl;
 
 import com.distilled.beer.entity.BeerEntity;
+import com.distilled.beer.exception.BeerServiceException;
 import com.distilled.beer.repository.BeerRepository;
 import com.distilled.beer.shared.dto.BeerDto;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,11 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class BeerServiceTest {
 
@@ -83,5 +83,13 @@ public class BeerServiceTest {
         BeerDto beerDto = beerService.getRandomBeer();
         assertNotNull(beerDto);
         assertEquals("Cool beer2", beerDto.getName());
+    }
+
+    @Test
+    void errorHandlerTest() {
+        when(beerRepository.findByBeerID(anyString())).thenReturn(null);
+        assertThrows(BeerServiceException.class, () -> {
+            beerService.getBeer("IFE89E");
+        });
     }
 }
