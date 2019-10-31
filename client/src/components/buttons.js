@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(3),
+        height:"60px",
+        width:"200px"
     },
     input: {
         display: 'none',
@@ -16,15 +18,9 @@ export default function Buttons(props) {
 
     return (
         <div style={{textAlign:"center"}}>
-            {/*<Button variant="contained" className={classes.button}>*/}
-            {/*    Default*/}
-            {/*</Button>*/}
             <Button variant="contained" color="primary" className={classes.button} onClick={props.handleBeerChange}>
-                Get new one!
+                Get your lucky beer!
             </Button>
-            {/*<Button variant="contained" className={classes.button}>*/}
-            {/*    Default*/}
-            {/*</Button>*/}
         </div>
     );
 }

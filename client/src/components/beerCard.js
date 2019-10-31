@@ -78,11 +78,11 @@ import CardContent from "@material-ui/core/CardContent";
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
-        marginTop:"50px"
+        marginTop: "50px"
     },
     paper: {
         padding: theme.spacing(2),
-        maxWidth: '80%',
+        maxWidth: '100%',
         height: '80%'
     },
     image: {
@@ -98,8 +98,8 @@ const useStyles = makeStyles(theme => ({
     subtitle: {
         margin: "5px",
     },
-    name :{
-        fontWeight:"bold"
+    name: {
+        fontWeight: "bold"
     }
 }));
 
@@ -110,21 +110,25 @@ export default function MediaCard(props) {
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <Grid container spacing={2}>
-                    <Grid item>
+                    <Grid item style={{backgroundColor: "#d5d5d5"}}>
                         <ButtonBase className={classes.image}>
                             <img className={classes.img} alt="complex" src={data.image}/>
                         </ButtonBase>
                     </Grid>
-                    <Grid item xs={12} sm container>
+                    <Grid item xs={12} sm container justify={'space-evenly'}>
                         <Grid item xs container direction="column" spacing={2}>
-                            <Grid item xs>
-                                <CardContent>
+                            <CardContent>
+                                <Grid item xs={12}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.name}>
                                         {data.name}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Typography variant="body2" color="textSecondary" component="p" style={{fontSize:'14pt'}}>
                                         {data.description}
                                     </Typography>
+                                </Grid>
+                                <Grid item xs={12}>
                                     <div className={classes.root}>
                                         <Grid container spacing={3}>
                                             <Grid item sm={4}>
@@ -143,12 +147,11 @@ export default function MediaCard(props) {
                                             </Grid>
                                         </Grid>
                                     </div>
-                                </CardContent>
-                            </Grid>
+                                </Grid>
+                            </CardContent>
                         </Grid>
                     </Grid>
                 </Grid>
             </Paper>
-        </div>
-    );
+        </div>);
 }
