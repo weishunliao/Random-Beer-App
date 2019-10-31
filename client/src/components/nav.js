@@ -14,7 +14,9 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         flexGrow: 1,
-        marginLeft: theme.spacing(2)
+        marginLeft: theme.spacing(2),
+        fontFamily: 'Playfair Display',
+        fontSize: "25pt"
     },
 }));
 
