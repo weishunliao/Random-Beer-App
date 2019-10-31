@@ -78,6 +78,7 @@ import CardContent from "@material-ui/core/CardContent";
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        marginTop:"50px"
     },
     paper: {
         padding: theme.spacing(2),
@@ -96,6 +97,9 @@ const useStyles = makeStyles(theme => ({
     },
     subtitle: {
         margin: "5px",
+    },
+    name :{
+        fontWeight:"bold"
     }
 }));
 
@@ -115,7 +119,7 @@ export default function MediaCard(props) {
                         <Grid item xs container direction="column" spacing={2}>
                             <Grid item xs>
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
+                                    <Typography gutterBottom variant="h5" component="h2" className={classes.name}>
                                         {data.name}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
