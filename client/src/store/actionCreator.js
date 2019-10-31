@@ -1,7 +1,7 @@
 import Axios from "axios";
 import {CHANGE_CONTENT} from "./actionType";
 
-const BEER_API_BASE_URL = 'http://beer-db.tk/api';
+const BEER_API_BASE_URL = 'http://localhost:8080/api';
 
 export const getFetchDataAction = () => {
     return ((dispatch) => {
