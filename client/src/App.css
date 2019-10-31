@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  background-image: url("./static/img/beers.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+  background-color: #2b282a;
+  /*background-position: center;*/
+  margin: 0;
+  position: relative;
 }
 
 .App-logo {
