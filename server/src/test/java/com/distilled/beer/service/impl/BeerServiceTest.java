@@ -57,7 +57,7 @@ public class BeerServiceTest {
     }
 
     @Test
-    void getBeer() {
+    void getBeerTest() {
         when(beerRepository.findByBeerID(anyString())).thenReturn(beerEntity1);
         BeerDto beerDto = beerService.getBeer("AL21MN");
         assertNotNull(beerDto);
@@ -65,7 +65,7 @@ public class BeerServiceTest {
     }
 
     @Test
-    void getBeers() {
+    void getBeersTest() {
         when(beerRepository.findAll()).thenReturn(beerEntities);
         List<BeerDto> beers = beerService.getBeers();
 
@@ -75,9 +75,10 @@ public class BeerServiceTest {
 
 
     @Test
-    void getLastBeer() {
+    void getRandomBeerTest() {
         when(beerRepository.findFirstByOrderByIdDesc()).thenReturn(beerEntity1);
         when(beerRepository.findFirstByOrderByIdAsc()).thenReturn(beerEntity2);
+        when(beerRepository.count()).thenReturn(10L);
         when(beerRepository.findById(anyLong())).thenReturn(optionalBeerEntity);
         when(beerRepository.findByBeerID(anyString())).thenReturn(beerEntity2);
         BeerDto beerDto = beerService.getRandomBeer();
