@@ -1,5 +1,7 @@
 # Random Beer App
-![preview]()
+![](https://github.com/weishunliao/Random-Beer-App/blob/dev/app.png)
+
+
 This repository is a technical challenge for Distilled. This interesting app would randomly display a beer for user with image and details. 
 
 
@@ -11,8 +13,8 @@ This is a full-stack web application based on React, Spring Boot and MySQL.Sprin
 ## Getting Started
 The app and the code could be access by following links.
 
-######Website: http://lets-beer.tk/
-######Github: https://github.com/weishunliao/Random-Beer-App
+###### Website: http://lets-beer.tk/
+###### Github: https://github.com/weishunliao/Random-Beer-App
 
 
 If you want to test it on your local computer, here has a step by step series that tell you how to get a development env running
