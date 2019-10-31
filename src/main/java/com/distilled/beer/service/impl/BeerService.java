@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 
 @Service
@@ -20,16 +22,18 @@ public class BeerService implements IBeer {
     private BeerRepository beerRepository;
 
     @Override
-    public BeerDto getBeer(String email) {
-        return null;
+    public BeerDto getBeer(String bearId) {
+        BeerEntity beerEntity = beerRepository.findByBeerID(bearId);
+        BeerDto beerDto = new BeerDto();
+        BeanUtils.copyProperties(beerEntity, beerDto);
+        return beerDto;
     }
 
     @Override
     public List<BeerDto> getBeers() {
-        List<BeerEntity> beers = beerRepository.findAll();
-        System.out.println(beers);
+        Iterable<BeerEntity> beerEntities = beerRepository.findAll();
         List<BeerDto> beerDtoList = new ArrayList<>();
-        for (BeerEntity beerEntity : beers) {
+        for (BeerEntity beerEntity : beerEntities) {
             BeerDto beerDto = new BeerDto();
             BeanUtils.copyProperties(beerEntity, beerDto);
             beerDtoList.add(beerDto);
@@ -39,6 +43,17 @@ public class BeerService implements IBeer {
 
     @Override
     public BeerDto getRandomBeer() {
-        return null;
+        int start = (int)beerRepository.findFirstByOrderByIdAsc().getId();
+        int end = (int)beerRepository.findFirstByOrderByIdDesc().getId();
+        Random random = new Random();
+        int randomInt = random.nextInt(end - start + 1) + start;
+        Optional<BeerEntity> beerEntity = beerRepository.findById((long) randomInt);
+        while (!beerEntity.isPresent()) {
+            randomInt = random.nextInt(end - start + 1) + start;
+            beerEntity = beerRepository.findById((long) randomInt);
+        }
+        return getBeer(beerEntity.get().getBeerID());
     }
+    
+    
 }

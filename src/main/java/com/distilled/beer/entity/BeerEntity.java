@@ -11,12 +11,12 @@ public class BeerEntity implements Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @Column(nullable = true)
-    private String bearID;
+    private String beerID;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
@@ -35,20 +35,20 @@ public class BeerEntity implements Serializable {
     @Column(nullable = false)
     private String image;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getBearID() {
-        return bearID;
+    public String getBeerID() {
+        return beerID;
     }
 
-    public void setBearID(String bearID) {
-        this.bearID = bearID;
+    public void setBeerID(String beerID) {
+        this.beerID = beerID;
     }
 
     public String getName() {
@@ -59,11 +59,11 @@ public class BeerEntity implements Serializable {
         this.name = name;
     }
 
-    public double getAbv() {
+    public Double getAbv() {
         return abv;
     }
 
-    public void setAbv(double abv) {
+    public void setAbv(Double abv) {
         this.abv = abv;
     }
 
@@ -103,7 +103,7 @@ public class BeerEntity implements Serializable {
     public String toString() {
         return "BeerEntity{" +
                 "id=" + id +
-                ", bearID='" + bearID + '\'' +
+                ", beerID='" + beerID + '\'' +
                 ", name='" + name + '\'' +
                 ", abv=" + abv +
                 ", description='" + description + '\'' +
