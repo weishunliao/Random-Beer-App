@@ -11,20 +11,20 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Buttons() {
+export default function Buttons(props) {
     const classes = useStyles();
 
     return (
         <div style={{textAlign:"center"}}>
-            <Button variant="contained" className={classes.button}>
-                Default
+            {/*<Button variant="contained" className={classes.button}>*/}
+            {/*    Default*/}
+            {/*</Button>*/}
+            <Button variant="contained" color="primary" className={classes.button} onClick={props.handleBeerChange}>
+                Get new one!
             </Button>
-            <Button variant="contained" color="primary" className={classes.button}>
-                Primary
-            </Button>
-            <Button variant="contained" className={classes.button}>
-                Default
-            </Button>
+            {/*<Button variant="contained" className={classes.button}>*/}
+            {/*    Default*/}
+            {/*</Button>*/}
         </div>
     );
 }
