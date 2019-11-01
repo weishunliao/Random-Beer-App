@@ -30,7 +30,7 @@ c. There is a 'application.properties' file in "Random-Beer-App-master/server/sr
 d. Run "mvn package && java -jar target/beer-0.0.1.jar" under server folder, once finished 
 this step, the restful api server would be up.
 
-e. Go to client folder and run "yarn install" and then "yarn run start". Make sure you have installed Node.js on the computer before run these commands.
+e. Go to client folder and run "yarn install" and then "yarn run start". Make sure you have installed Node on the computer before run these commands.
 
 f. Visit localhost:3000 on your browser.
 ```
