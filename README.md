@@ -13,7 +13,7 @@ This is a full-stack web application based on React, Spring Boot and MySQL.Sprin
 ## Getting Started
 The app and the code could be access by following links.
 
-###### Website: http://lets-beer.tk/
+###### Website: 
 ###### Github: https://github.com/weishunliao/Random-Beer-App
 
 
