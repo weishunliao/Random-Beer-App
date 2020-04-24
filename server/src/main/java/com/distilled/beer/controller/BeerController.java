@@ -16,8 +16,13 @@ import java.util.List;
 @RequestMapping("/api")
 public class BeerController {
 
+
+    private BeerService beerService;
+
     @Autowired
-    BeerService beerService;
+    public BeerController(BeerService beerService) {
+        this.beerService = beerService;
+    }
 
 
     @GetMapping(path = "/beers",
@@ -27,14 +32,12 @@ public class BeerController {
     }
 
 
-    @GetMapping(path = "/beer/{beerId}",
-            produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/beer/{beerId}")
     public BeerDto getBeer(@PathVariable String beerId) {
         return beerService.getBeer(beerId);
     }
 
-    @GetMapping(path = "/beer/random",
-            produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/beer/random")
     public BeerDto getBeer() {
         return beerService.getRandomBeer();
     }
