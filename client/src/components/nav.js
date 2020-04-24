@@ -30,7 +30,7 @@ export default function AppNav() {
                     <LocalBarIcon/>
 
                     <Typography variant="h5" className={classes.title}>
-                        Let's Beer
+                        Beer World
                     </Typography>
                 </Toolbar>
             </AppBar>
