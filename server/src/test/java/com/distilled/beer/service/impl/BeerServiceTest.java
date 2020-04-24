@@ -12,10 +12,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -28,8 +26,6 @@ public class BeerServiceTest {
     BeerRepository beerRepository;
 
     private BeerEntity beerEntity1;
-    private BeerEntity beerEntity2;
-    private Optional<BeerEntity> optionalBeerEntity;
 
     private List<BeerEntity> beerEntities;
 
@@ -42,17 +38,8 @@ public class BeerServiceTest {
         beerEntity1.setAbv(9.8);
         beerEntity1.setName("Cool beer1");
         beerEntity1.setBreweryLocation("Cork");
-        beerEntity2 = new BeerEntity();
-        beerEntity2.setBeerID("AL21MN");
-        beerEntity2.setId(34);
-        beerEntity2.setAbv(1.8);
-        beerEntity2.setName("Cool beer2");
-        beerEntity2.setBreweryLocation("Cork");
         beerEntities = new ArrayList<>();
         beerEntities.add(beerEntity1);
-        beerEntities.add(beerEntity2);
-
-        optionalBeerEntity = Optional.of(beerEntity2);
 
     }
 
@@ -70,20 +57,17 @@ public class BeerServiceTest {
         List<BeerDto> beers = beerService.getBeers();
 
         assertNotNull(beers);
-        assertEquals(2,beers.size());
+        assertEquals(1,beers.size());
     }
 
 
     @Test
     void getRandomBeerTest() {
-        when(beerRepository.findFirstByOrderByIdDesc()).thenReturn(beerEntity1);
-        when(beerRepository.findFirstByOrderByIdAsc()).thenReturn(beerEntity2);
+        when(beerRepository.findRandom()).thenReturn(beerEntity1);
         when(beerRepository.count()).thenReturn(10L);
-        when(beerRepository.findById(anyLong())).thenReturn(optionalBeerEntity);
-        when(beerRepository.findByBeerID(anyString())).thenReturn(beerEntity2);
         BeerDto beerDto = beerService.getRandomBeer();
         assertNotNull(beerDto);
-        assertEquals("Cool beer2", beerDto.getName());
+        assertEquals("Cool beer1", beerDto.getName());
     }
 
     @Test
